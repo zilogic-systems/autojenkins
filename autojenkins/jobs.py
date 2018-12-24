@@ -151,7 +151,7 @@ class Jenkins(object):
     # Top level directory is considered colourless and all jobs
     # within is ignored during job list creation, to avoid that enable
     # include_colourless as default.
- all_jobs(self, include_colorless=True):
+    def all_jobs(self, include_colorless=True):
         """
         Get a list of tuples with (name, color) of all jobs in the server.
 
