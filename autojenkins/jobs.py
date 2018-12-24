@@ -145,7 +145,13 @@ class Jenkins(object):
         """
         return self._http_post(self._url(url_pattern, *args), **kwargs)
 
-    def all_jobs(self, include_colorless=False):
+    # Support multibranch-pipeline project which has a top level
+    # directory which create a job for every branch in the
+    # repository.
+    # Top level directory is considered colourless and all jobs
+    # within is ignored during job list creation, to avoid that enable
+    # include_colourless as default.
+ all_jobs(self, include_colorless=True):
         """
         Get a list of tuples with (name, color) of all jobs in the server.
 
